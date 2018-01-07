@@ -17,9 +17,9 @@ struct Float
 };
 
 Float operator -(const Float& x);
-Float operator ++(Float& x);
+Float& operator ++(Float& x);
 Float operator ++(Float& x, int);
-Float operator --(Float& x);
+Float& operator --(Float& x);
 Float operator --(Float& x, int);
 
 Float operator +(const Float x, const Float y);
