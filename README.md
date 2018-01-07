@@ -1,5 +1,7 @@
 # Float Wrapper #
 
+[![Build Status](https://travis-ci.org/Gumichan01/float-wrapper.svg?branch=master)](https://travis-ci.org/Gumichan01/float-wrapper)
+
 This is a simple wrapper for floating-point values
 
 ## Why? ##
