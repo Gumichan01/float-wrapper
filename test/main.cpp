@@ -3,6 +3,7 @@
 #include "../src/Float.hpp"
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -137,7 +138,7 @@ int main()
         if((f / Float{2.0f}).v != fe.v)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
-            return 8;
+            return 11;
         }
     }
 
@@ -151,7 +152,7 @@ int main()
         if(f.v != fe.v)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
-            return 8;
+            return 12;
         }
     }
 
@@ -165,7 +166,7 @@ int main()
         if(f.v != fe.v)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
-            return 9;
+            return 13;
         }
     }
 
@@ -179,7 +180,7 @@ int main()
         if(f.v != fe.v)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
-            return 10;
+            return 14;
         }
     }
 
@@ -193,10 +194,139 @@ int main()
         if(f.v != fe.v)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
-            return 8;
+            return 15;
         }
     }
 
+    // '==' easy
+    {
+        Float f{4.2f};
+        Float fe{4.2f};
+        bool res = (fe == f);
+
+        if(!res)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 16;
+        }
+    }
+
+    // '==' medium
+    {
+        Float f{0.3333333333f};
+        Float fe{(1.0f/3.0f)};
+        bool res = (fe == f);
+
+        if(!res)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 17;
+        }
+    }
+
+    // '==' hard
+    {
+        Float f{M_PI};
+        Float fe{static_cast<float>(M_PI)};
+        bool res = (fe == f);
+
+        if(!res)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 18;
+        }
+    }
+
+    // '!=' easy
+    {
+        Float f{4.2f};
+        Float fe{4.3f};
+        bool res = (fe != f);
+
+        if(!res)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 19;
+        }
+    }
+
+    // '!=' medium
+    {
+        Float f{0.3334343333f};
+        Float fe{(1.0f/3.0f)};
+        bool res = (fe != f);
+
+        if(!res)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 20;
+        }
+    }
+
+    // '!=' hard
+    {
+        Float f{M_PI};
+        Float fe{static_cast<float>(M_PI) + static_cast<float>(1.0 / M_PI)};
+        bool res = (fe != f);
+
+        if(!res)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 21;
+        }
+    }
+
+    // '<'
+    {
+        Float f{4.2f};
+        Float fe{4.1f};
+        bool res = (fe < f);
+
+        if(!res)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 22;
+        }
+    }
+
+    // '>'
+    {
+        Float f{4.2f};
+        Float fe{4.3f};
+        bool res = (fe > f);
+
+        if(!res)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 23;
+        }
+    }
+
+    // '<='
+    {
+        Float f{4.2f};
+        Float fe{4.1f};
+        bool res = (fe <= f);
+
+        if(!res)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 24;
+        }
+    }
+
+    // '>='
+    {
+        Float f{4.2f};
+        Float fe{4.3f};
+        bool res = (fe >= f);
+
+        if(!res)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 25;
+        }
+    }
 
     cout << "SUCCESS\n";
     return 0;
