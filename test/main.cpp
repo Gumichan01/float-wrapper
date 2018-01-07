@@ -31,60 +31,60 @@ int main()
         }
     }
 
-    // prefix '+'
+    // postfix '+'
     {
         Float f{4.2f};
         Float fe{4.2f};
-        Float fee{5.2f};
+        Float fee{f.v + 1.0f};
 
-        if((f++).v != fe.v)
+        if((f++) != fe)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
             return 2;
         }
 
-        if(f.v != fee.v)
+        if(f != fee)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
             return 3;
         }
     }
 
-    // postfix '+'
+    // prefix '+'
     {
         Float f{4.2f};
-        Float fe{5.2f};
+        Float fe{f.v + 1.0f};
 
-        if((++f).v != fe.v)
+        if((++f) != fe)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
             return 4;
         }
     }
 
-    // prefix '-'
+    // postfix '-'
     {
         Float f{4.2f};
         Float fe{4.2f};
-        Float fee{3.2f};
+        Float fee{f.v - 1.0f};
 
-        if((f--).v != fe.v)
+        if((f--) != fe)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
             return 5;
         }
 
-        if(f.v != fee.v)
+        if(f != fee)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
             return 6;
         }
     }
 
-    // postfix '-'
+    // prefix '-'
     {
         Float f{4.2f};
-        Float fe{3.2f};
+        Float fe{f.v - 1.0f};
 
         if((--f).v != fe.v)
         {
@@ -141,5 +141,6 @@ int main()
         }
     }
 
+    cout << "SUCCESS\n";
     return 0;
 }
