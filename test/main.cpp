@@ -37,7 +37,7 @@ int main()
         Float fe{4.2f};
         Float fee{f.v + 1.0f};
 
-        if((f++) != fe)
+        if((f++).v != fe.v)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
             return 2;
@@ -55,7 +55,7 @@ int main()
         Float f{4.2f};
         Float fe{f.v + 1.0f};
 
-        if((++f) != fe)
+        if((++f).v != fe.v)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
             return 4;
@@ -68,7 +68,7 @@ int main()
         Float fe{4.2f};
         Float fee{f.v - 1.0f};
 
-        if((f--) != fe)
+        if((f--).v != fe.v)
         {
             cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
             return 5;
@@ -140,6 +140,63 @@ int main()
             return 8;
         }
     }
+
+    // '+='
+    {
+        Float f{4.2f};
+        Float fe{4.2f + 4.2f};
+
+        f += f;
+
+        if(f.v != fe.v)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 8;
+        }
+    }
+
+    // '-='
+    {
+        Float f{4.2f};
+        Float fe{4.2f - 4.2f};
+
+        f -= f;
+
+        if(f.v != fe.v)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 9;
+        }
+    }
+
+    // '*='
+    {
+        Float f{4.2f};
+        Float fe{4.2f * 4.2f};
+
+        f *= f;
+
+        if(f.v != fe.v)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 10;
+        }
+    }
+
+    // '/='
+    {
+        Float f{10.0f};
+        Float fe{10.0f / 2.0f};
+
+        f /= Float{2.0f};
+
+        if(f.v != fe.v)
+        {
+            cerr << "failure @" << __FILE__ << ":" << __LINE__ << "\n";
+            return 8;
+        }
+    }
+
 
     cout << "SUCCESS\n";
     return 0;
