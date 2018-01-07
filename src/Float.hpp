@@ -12,7 +12,8 @@
 struct Float
 {
     float v;
-    operator float();
+    // static_cast<float>(Float)
+    operator float() const;
 };
 
 Float operator -(const Float& x);
