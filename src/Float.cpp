@@ -59,6 +59,30 @@ Float operator /(const Float x, const Float y)
     return Float{ x.v / y.v };
 }
 
+Float& operator +=(Float& x, const Float y)
+{
+    x.v += y.v;
+    return x;
+}
+
+Float& operator -=(Float& x, const Float y)
+{
+    x.v -= y.v;
+    return x;
+}
+
+Float& operator *=(Float& x, const Float y)
+{
+    x.v *= y.v;
+    return x;
+}
+
+Float& operator /=(Float& x, const Float y)
+{
+    x.v /= y.v;
+    return x;
+}
+
 
 bool operator ==(const Float& x, const Float& y)
 {
@@ -87,16 +111,22 @@ bool operator !=(const Float& x, const Float& y)
     return !(x == y);
 }
 
-/*
-std::ostream& operator <<(std::ostream& os, const Float& f)
+bool operator <(const Float& x, const Float& y)
 {
-    os << f.v;
-    return os;
+    return x.v < y.v;
 }
 
-
-std::istream& operator >>(std::istream& is, Float& f)
+bool operator >(const Float& x, const Float& y)
 {
-    is >> f.v;
-    return is;
-}*/
+    return x.v > y.v;
+}
+
+bool operator <=(const Float& x, const Float& y)
+{
+    return !(x.v > y.v);
+}
+
+bool operator >=(const Float& x, const Float& y)
+{
+    return !(x.v < y.v);
+}
