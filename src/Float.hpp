@@ -1,10 +1,17 @@
 
-
+/*
+*   Copyright © 2018 Luxon Jean-Pierre
+*   https://gumichan01.github.io/
+*
+*   This library is under the MIT license
+*
+*   Luxon Jean-Pierre (Gumichan01)
+*   luxon.jean.pierre@gmail.com
+*/
 
 struct Float
 {
     float v;
-
     operator float();
 };
 
