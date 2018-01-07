@@ -14,10 +14,9 @@ int main()
     // Initialization + static_cast
     {
         Float f{4.2f};
-        cout << f << endl;
         Float g{3.2f};
         float vf = static_cast<float>(g);
-        cout << vf << endl;
+        cout << "-" << f << " " << vf << endl;
     }
 
     // Opposite value
