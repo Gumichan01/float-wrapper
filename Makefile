@@ -8,10 +8,10 @@ TEST_SRC=./test/
 TEST_MAIN=$(TEST_SRC)main.cpp
 TEST_EXE=float-wrapper
 
-FLOAT_HEADER=$(SRC)Float.hpp
-FLOAT_SRC=$(SRC)Float.cpp
+FLOAT_HEADER=$(SRC)float.hpp
+FLOAT_SRC=$(SRC)float.cpp
 
-FLOAT_OBJ=Float.o
+FLOAT_OBJ=float.o
 TEST_OBJ=main.o
 OBJS=$(FLOAT_OBJ) $(TEST_OBJ)
 

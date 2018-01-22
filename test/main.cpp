@@ -1,6 +1,6 @@
 
 
-#include "../src/Float.hpp"
+#include "../src/float.hpp"
 
 #include <iostream>
 #include <cmath>
