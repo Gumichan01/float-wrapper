@@ -1,7 +1,7 @@
 # Makefile of float-wrapper
 
 CC=g++
-CFLAGS=-O0 -g -Wall -Wextra -std=c++11
+CFLAGS=-O0 -g -Wall -Wextra -Weffc++ -std=c++11
 
 SRC=./src/
 TEST_SRC=./test/
