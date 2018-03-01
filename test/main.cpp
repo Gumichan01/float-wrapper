@@ -9,6 +9,7 @@ using namespace std;
 
 int main()
 {
+    constexpr double PI = 3.14159265358979323846;
     cout << "Hello World!\n";
 
     // Initialization + static_cast
@@ -213,7 +214,7 @@ int main()
     // '==' medium
     {
         Float f{0.3333333333f};
-        Float fe{(1.0f/3.0f)};
+        Float fe{(1.0f / 3.0f)};
         bool res = (fe == f);
 
         if(!res)
@@ -225,8 +226,8 @@ int main()
 
     // '==' hard
     {
-        Float f{M_PI};
-        Float fe{static_cast<float>(M_PI)};
+        Float f{PI};
+        Float fe{static_cast<float>(PI)};
         bool res = (fe == f);
 
         if(!res)
@@ -264,8 +265,8 @@ int main()
 
     // '!=' hard
     {
-        Float f{M_PI};
-        Float fe{static_cast<float>(M_PI) + static_cast<float>(1.0 / M_PI)};
+        Float f{PI};
+        Float fe{static_cast<float>(PI) + static_cast<float>(1.0 / PI)};
         bool res = (fe != f);
 
         if(!res)
