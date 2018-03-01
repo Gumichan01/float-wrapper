@@ -20,7 +20,7 @@ struct Float
 };
 
 /// Boxing
-inline Float fbox(float x)
+inline constexpr Float fbox(float x)
 {
     return Float{x};
 }
@@ -47,5 +47,36 @@ bool operator <(const Float& x, const Float& y);
 bool operator >(const Float& x, const Float& y);
 bool operator <=(const Float& x, const Float& y);
 bool operator >=(const Float& x, const Float& y);
+
+namespace FloatMath
+{
+
+Float& abs(Float& f) noexcept;
+
+Float& acos(Float& f) noexcept;
+Float& asin(Float& f) noexcept;
+Float& atan(Float& f) noexcept;
+
+Float& cos(Float& f) noexcept;
+Float& cosh(Float& f) noexcept;
+
+Float& sin(Float& f) noexcept;
+Float& sinh(Float& f) noexcept;
+
+Float& tan(Float& f) noexcept;
+Float& tanh(Float& f) noexcept;
+
+Float& ceil(Float& f) noexcept;
+Float& floor(Float& f) noexcept;
+
+Float& exp(Float& f) noexcept;
+Float& log(Float& f) noexcept;
+Float& log10(Float& f) noexcept;
+
+Float& pow(Float& f) noexcept;
+Float& sqrt(Float& f) noexcept;
+
+
+}
 
 #endif // FLOAT_HPP
