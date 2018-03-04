@@ -47,11 +47,6 @@ Float operator ++(Float& x, int);
 Float& operator --(Float& x);
 Float operator --(Float& x, int);
 
-/*constexpr Float operator -(const Float& x);
-constexpr Float operator +(const Float& x, const Float& y);
-constexpr Float operator -(const Float& x, const Float& y);
-constexpr Float operator *(const Float& x, const Float& y);
-constexpr Float operator /(const Float& x, const Float& y);*/
 
 constexpr Float operator -(const Float& x)
 {
@@ -87,30 +82,6 @@ Float& operator /=(Float& x, const Float& y);
 bool operator ==(const Float& x, const Float& y);
 bool operator !=(const Float& x, const Float& y);
 
-constexpr bool operator <(const Float& x, const Float& y)
-{
-    return x.v < y.v;
-}
-
-constexpr bool operator >(const Float& x, const Float& y)
-{
-    return x.v > y.v;
-}
-
-constexpr bool operator <=(const Float& x, const Float& y)
-{
-    return !(x.v > y.v);
-}
-
-constexpr bool operator >=(const Float& x, const Float& y)
-{
-    return !(x.v < y.v);
-}
-
-/*constexpr bool operator <(const Float& x, const Float& y);
-constexpr bool operator >(const Float& x, const Float& y);
-constexpr bool operator <=(const Float& x, const Float& y);
-constexpr bool operator >=(const Float& x, const Float& y);*/
 
 namespace FloatMath
 {

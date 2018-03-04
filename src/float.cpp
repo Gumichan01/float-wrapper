@@ -68,13 +68,13 @@ Float& operator /=(Float& x, const Float& y)
 */
 bool operator ==(const Float& x, const Float& y)
 {
-    static const float EPSILON   = std::numeric_limits<float>::epsilon();
-    static const float FLOAT_MIN = std::numeric_limits<float>::min();
-    static const float FLOAT_MAX = std::numeric_limits<float>::max();
+    static constexpr float EPSILON   = std::numeric_limits<float>::epsilon();
+    static constexpr float FLOAT_MIN = std::numeric_limits<float>::min();
+    static constexpr float FLOAT_MAX = std::numeric_limits<float>::max();
 
-    const float abs_x = fabsf(x);
-    const float abs_y = fabsf(y);
-    const float diff  = fabsf(x - y);
+    const float abs_x = std::abs(x.v);
+    const float abs_y = std::abs(y.v);
+    const float diff  = std::abs(abs_x - abs_y);
 
     if(abs_x == abs_y)
     {
@@ -89,7 +89,6 @@ bool operator ==(const Float& x, const Float& y)
         return (diff / std::min((abs_x + abs_y), FLOAT_MAX)) < EPSILON;
     }
 }
-
 
 bool operator !=(const Float& x, const Float& y)
 {
