@@ -16,7 +16,7 @@
 
 struct Float
 {
-    float v;// = 0.0f;
+    float v;
     /// Unboxing ≡ static_cast<float>(Float)
     operator float() const;
 };
@@ -25,17 +25,18 @@ namespace FloatBox
 {
 /// Boxing
 template <typename N>
-inline Float fbox(typename std::enable_if<std::is_arithmetic<N>::value, N>::type x)
+inline constexpr Float
+fbox(typename std::enable_if<std::is_arithmetic<N>::value, N>::type x) noexcept
 {
     return Float{static_cast<float>(x)};
 }
 
-inline Float fobxf(float x)
+inline constexpr Float fobxf(float x) noexcept
 {
     return Float{x};
 }
 
-inline Float fobxi(float x)
+inline constexpr Float fobxi(float x) noexcept
 {
     return fbox<int>(x);
 }
