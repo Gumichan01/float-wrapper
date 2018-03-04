@@ -23,8 +23,7 @@ Float& operator ++(Float& x)
 
 Float operator ++(Float& x, int)
 {
-    Float tmp{ x.v++ };
-    return tmp;
+    return Float{ x.v++ };
 }
 
 Float& operator --(Float& x)
@@ -35,8 +34,7 @@ Float& operator --(Float& x)
 
 Float operator --(Float& x, int)
 {
-    Float tmp{ x.v-- };
-    return tmp;
+    return Float{ x.v-- };
 }
 
 
@@ -96,7 +94,7 @@ Float& operator /=(Float& x, const Float& y)
 */
 bool operator ==(const Float& x, const Float& y)
 {
-    static const float EPSILON = std::numeric_limits<float>::epsilon();
+    static const float EPSILON   = std::numeric_limits<float>::epsilon();
     static const float FLOAT_MIN = std::numeric_limits<float>::min();
     static const float FLOAT_MAX = std::numeric_limits<float>::max();
 
