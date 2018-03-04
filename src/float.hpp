@@ -23,22 +23,21 @@ struct Float
 
 namespace FloatBox
 {
+
+template <typename N>
+using Ftype = typename std::enable_if< std::is_arithmetic<N>::value &&
+              !std::is_same<N,float>::value >::type;
+
 /// Boxing
 template <typename N>
-inline constexpr Float
-fbox(typename std::enable_if<std::is_arithmetic<N>::value, N>::type x) noexcept
+inline constexpr Float fbox(Ftype<N> x) noexcept
 {
     return Float{static_cast<float>(x)};
 }
 
-inline constexpr Float fobxf(float x) noexcept
+inline constexpr Float fbox(float x) noexcept
 {
-    return Float{x};
-}
-
-inline constexpr Float fobxi(float x) noexcept
-{
-    return fbox<int>(x);
+    return Float{ x };
 }
 
 }
