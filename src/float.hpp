@@ -25,7 +25,7 @@ namespace FloatBox
 {
 /// Boxing
 template <typename N>
-Float fbox(typename std::enable_if<std::is_arithmetic<N>::value, N>::type x)
+inline Float fbox(typename std::enable_if<std::is_arithmetic<N>::value, N>::type x)
 {
     return Float{static_cast<float>(x)};
 }
@@ -92,7 +92,6 @@ Float& log10(Float& f) noexcept;
 
 Float& pow(Float& f) noexcept;
 Float& sqrt(Float& f) noexcept;
-
 
 }
 
