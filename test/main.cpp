@@ -332,8 +332,8 @@ int main()
     {
         using namespace FloatBox;
         float x = 3.14f;
-        Float f1 = fbox<float>(x);
-        Float f2 = fbox<int>(42);
+        Float f1 = fbox(x);
+        Float f2 = fbox(42);
         ///Float wrong = fbox("hello"); // must not compile
 
         cout << f1 << " " << f2 << "\n";
