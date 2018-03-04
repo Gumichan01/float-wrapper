@@ -5,53 +5,53 @@
 #include <algorithm>
 #include <limits>
 
-Float::operator float() const
+Float::operator float() const noexcept
 {
     return v;
 }
 
-Float& operator ++(Float& x)
+Float& operator ++(Float& x) noexcept
 {
     x.v += 1.0f;
     return x;
 }
 
-Float operator ++(Float& x, int)
+Float operator ++(Float& x, int) noexcept
 {
     return Float{ x.v++ };
 }
 
-Float& operator --(Float& x)
+Float& operator --(Float& x) noexcept
 {
     x.v -= 1.0f;
     return x;
 }
 
-Float operator --(Float& x, int)
+Float operator --(Float& x, int) noexcept
 {
     return Float{ x.v-- };
 }
 
 
-Float& operator +=(Float& x, const Float& y)
+Float& operator +=(Float& x, const Float& y) noexcept
 {
     x.v += y.v;
     return x;
 }
 
-Float& operator -=(Float& x, const Float& y)
+Float& operator -=(Float& x, const Float& y) noexcept
 {
     x.v -= y.v;
     return x;
 }
 
-Float& operator *=(Float& x, const Float& y)
+Float& operator *=(Float& x, const Float& y) noexcept
 {
     x.v *= y.v;
     return x;
 }
 
-Float& operator /=(Float& x, const Float& y)
+Float& operator /=(Float& x, const Float& y) noexcept
 {
     x.v /= y.v;
     return x;
@@ -66,7 +66,7 @@ Float& operator /=(Float& x, const Float& y)
 *
 *   https://github.com/Nerdylicious/FloatingPointComparison
 */
-bool operator ==(const Float& x, const Float& y)
+bool operator ==(const Float& x, const Float& y) noexcept
 {
     static constexpr float EPSILON   = std::numeric_limits<float>::epsilon();
     static constexpr float FLOAT_MIN = std::numeric_limits<float>::min();
@@ -90,7 +90,7 @@ bool operator ==(const Float& x, const Float& y)
     }
 }
 
-bool operator !=(const Float& x, const Float& y)
+bool operator !=(const Float& x, const Float& y) noexcept
 {
     return !(x == y);
 }

@@ -18,7 +18,7 @@ struct Float
 {
     float v;
     /// Unboxing ≡ static_cast<float>(Float)
-    operator float() const;
+    operator float() const noexcept;
 };
 
 namespace FloatBox
@@ -42,45 +42,45 @@ inline constexpr Float fbox(float x) noexcept
 
 }
 
-Float& operator ++(Float& x);
-Float operator ++(Float& x, int);
-Float& operator --(Float& x);
-Float operator --(Float& x, int);
+Float& operator ++(Float& x) noexcept;
+Float operator ++(Float& x, int) noexcept;
+Float& operator --(Float& x) noexcept;
+Float operator --(Float& x, int) noexcept;
 
 
-constexpr Float operator -(const Float& x)
+constexpr Float operator -(const Float& x) noexcept
 {
     return Float{ -x.v };
 }
 
-constexpr Float operator +(const Float& x, const Float& y)
+constexpr Float operator +(const Float& x, const Float& y) noexcept
 {
     return Float{ x.v + y.v };
 }
 
-constexpr Float operator -(const Float& x, const Float& y)
+constexpr Float operator -(const Float& x, const Float& y) noexcept
 {
     return Float{ x.v - y.v };
 }
 
-constexpr Float operator *(const Float& x, const Float& y)
+constexpr Float operator *(const Float& x, const Float& y) noexcept
 {
     return Float{ x.v * y.v };
 }
 
-constexpr Float operator /(const Float& x, const Float& y)
+constexpr Float operator /(const Float& x, const Float& y) noexcept
 {
     return Float{ x.v / y.v };
 }
 
 
-Float& operator +=(Float& x, const Float& y);
-Float& operator -=(Float& x, const Float& y);
-Float& operator *=(Float& x, const Float& y);
-Float& operator /=(Float& x, const Float& y);
+Float& operator +=(Float& x, const Float& y) noexcept;
+Float& operator -=(Float& x, const Float& y) noexcept;
+Float& operator *=(Float& x, const Float& y) noexcept;
+Float& operator /=(Float& x, const Float& y) noexcept;
 
-bool operator ==(const Float& x, const Float& y);
-bool operator !=(const Float& x, const Float& y);
+bool operator ==(const Float& x, const Float& y) noexcept;
+bool operator !=(const Float& x, const Float& y) noexcept;
 
 
 namespace FloatMath
