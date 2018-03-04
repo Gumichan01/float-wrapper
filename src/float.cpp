@@ -10,11 +10,6 @@ Float::operator float() const
     return v;
 }
 
-Float operator -(const Float& x)
-{
-    return Float{ -x.v };
-}
-
 Float& operator ++(Float& x)
 {
     x.v += 1.0f;
@@ -35,27 +30,6 @@ Float& operator --(Float& x)
 Float operator --(Float& x, int)
 {
     return Float{ x.v-- };
-}
-
-
-Float operator +(const Float& x, const Float& y)
-{
-    return Float{ x.v + y.v };
-}
-
-Float operator -(const Float& x, const Float& y)
-{
-    return Float{ x.v - y.v };
-}
-
-Float operator *(const Float& x, const Float& y)
-{
-    return Float{ x.v * y.v };
-}
-
-Float operator /(const Float& x, const Float& y)
-{
-    return Float{ x.v / y.v };
 }
 
 
@@ -120,26 +94,6 @@ bool operator ==(const Float& x, const Float& y)
 bool operator !=(const Float& x, const Float& y)
 {
     return !(x == y);
-}
-
-bool operator <(const Float& x, const Float& y)
-{
-    return x.v < y.v;
-}
-
-bool operator >(const Float& x, const Float& y)
-{
-    return x.v > y.v;
-}
-
-bool operator <=(const Float& x, const Float& y)
-{
-    return !(x.v > y.v);
-}
-
-bool operator >=(const Float& x, const Float& y)
-{
-    return !(x.v < y.v);
 }
 
 
