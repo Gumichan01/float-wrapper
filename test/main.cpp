@@ -328,6 +328,17 @@ int main()
         }
     }
 
+    // fbox
+    {
+        using namespace FloatBox;
+        float x = 3.14f;
+        Float f1 = fbox<float>(x);
+        Float f2 = fbox<int>(42);
+        ///Float wrong = fbox("hello"); // must not compile
+
+        cout << f1 << " " << f2 << "\n";
+    }
+
     cout << "SUCCESS\n";
     return 0;
 }

@@ -12,17 +12,34 @@
 #ifndef FLOAT_HPP
 #define FLOAT_HPP
 
+#include <type_traits>
+
 struct Float
 {
-    float v;
+    float v;// = 0.0f;
     /// Unboxing ≡ static_cast<float>(Float)
     operator float() const;
 };
 
+namespace FloatBox
+{
 /// Boxing
-inline constexpr Float fbox(float x)
+template <typename N>
+Float fbox(typename std::enable_if<std::is_arithmetic<N>::value, N>::type x)
+{
+    return Float{static_cast<float>(x)};
+}
+
+inline Float fobxf(float x)
 {
     return Float{x};
+}
+
+inline Float fobxi(float x)
+{
+    return fbox<int>(x);
+}
+
 }
 
 Float operator -(const Float& x);
