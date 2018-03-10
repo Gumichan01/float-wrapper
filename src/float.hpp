@@ -30,7 +30,6 @@ struct Float
 };
 
 /**
-*   @ingroup Utils
 *   @namespace FloatBox
 *   @brief Boxing
 */
