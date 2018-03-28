@@ -22,7 +22,7 @@
 #include <type_traits>
 
 
-struct Float
+struct Float final
 {
     float v;
     // Unboxing ≡ static_cast<float>(Float)
