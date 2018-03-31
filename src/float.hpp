@@ -114,6 +114,26 @@ Float& operator /=(Float& x, const Float& y) noexcept;
 bool operator ==(const Float& x, const Float& y) noexcept;
 bool operator !=(const Float& x, const Float& y) noexcept;
 
+constexpr bool operator <(const Float& x, const Float& y) noexcept
+{
+    return x.v < y.v;
+}
+
+constexpr bool operator >(const Float& x, const Float& y) noexcept
+{
+    return x.v > y.v;
+}
+
+constexpr bool operator <=(const Float& x, const Float& y) noexcept
+{
+    return !(x.v > y.v);
+}
+
+constexpr bool operator >=(const Float& x, const Float& y) noexcept
+{
+    return !(x.v < y.v);
+}
+
 /**
 *   @ingroup Utils
 *   @namespace FloatMath
