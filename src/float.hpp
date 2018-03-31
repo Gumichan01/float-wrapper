@@ -80,27 +80,27 @@ Float& operator --(Float& x) noexcept;
 Float operator --(Float& x, int) noexcept;
 
 
-constexpr Float operator -(const Float& x) noexcept
+inline constexpr Float operator -(const Float& x) noexcept
 {
     return Float{ -x.v };
 }
 
-constexpr Float operator +(const Float& x, const Float& y) noexcept
+inline constexpr Float operator +(const Float& x, const Float& y) noexcept
 {
     return Float{ x.v + y.v };
 }
 
-constexpr Float operator -(const Float& x, const Float& y) noexcept
+inline constexpr Float operator -(const Float& x, const Float& y) noexcept
 {
     return Float{ x.v - y.v };
 }
 
-constexpr Float operator *(const Float& x, const Float& y) noexcept
+inline constexpr Float operator *(const Float& x, const Float& y) noexcept
 {
     return Float{ x.v * y.v };
 }
 
-constexpr Float operator /(const Float& x, const Float& y) noexcept
+inline constexpr Float operator /(const Float& x, const Float& y) noexcept
 {
     return Float{ x.v / y.v };
 }
@@ -114,22 +114,22 @@ Float& operator /=(Float& x, const Float& y) noexcept;
 bool operator ==(const Float& x, const Float& y) noexcept;
 bool operator !=(const Float& x, const Float& y) noexcept;
 
-constexpr bool operator <(const Float& x, const Float& y) noexcept
+inline constexpr bool operator <(const Float& x, const Float& y) noexcept
 {
     return x.v < y.v;
 }
 
-constexpr bool operator >(const Float& x, const Float& y) noexcept
+inline constexpr bool operator >(const Float& x, const Float& y) noexcept
 {
     return x.v > y.v;
 }
 
-constexpr bool operator <=(const Float& x, const Float& y) noexcept
+inline constexpr bool operator <=(const Float& x, const Float& y) noexcept
 {
     return !(x.v > y.v);
 }
 
-constexpr bool operator >=(const Float& x, const Float& y) noexcept
+inline constexpr bool operator >=(const Float& x, const Float& y) noexcept
 {
     return !(x.v < y.v);
 }
