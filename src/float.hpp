@@ -37,8 +37,8 @@ namespace FloatBox
 {
 
 template <typename N>
-using Ftype = typename std::enable_if< std::is_arithmetic<N>::value &&
-              !std::is_same<N,float>::value >::type;
+using Ftype = typename std::enable_if< std::is_arithmetic< N >::value &&
+              !std::is_same< N, float >::value, N >::type;
 
 /**
 *   @fn template <typename N> inline constexpr Float fbox(Ftype<N> x) noexcept
@@ -48,9 +48,9 @@ using Ftype = typename std::enable_if< std::is_arithmetic<N>::value &&
 *   @return The boxed value
 */
 template <typename N>
-inline constexpr Float fbox(Ftype<N> x) noexcept
+inline constexpr Float fbox(const Ftype<N> x) noexcept
 {
-    return Float{static_cast<float>(x)};
+    return Float{ static_cast<float>(x) };
 }
 
 /**
@@ -60,7 +60,7 @@ inline constexpr Float fbox(Ftype<N> x) noexcept
 *   @param x
 *   @return The boxed value
 */
-inline constexpr Float fbox(float x) noexcept
+inline constexpr Float fbox(const float x) noexcept
 {
     return Float{ x };
 }
