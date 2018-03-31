@@ -226,7 +226,7 @@ int main()
 
     // '==' hard
     {
-        Float f{PI};
+        Float f = FloatBox::fbox(PI);
         Float fe{static_cast<float>(PI)};
         bool res = (fe == f);
 
@@ -265,7 +265,7 @@ int main()
 
     // '!=' hard
     {
-        Float f{PI};
+        Float f = FloatBox::fbox(PI);
         Float fe{static_cast<float>(PI) + static_cast<float>(1.0 / PI)};
         bool res = (fe != f);
 
